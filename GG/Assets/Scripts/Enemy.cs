@@ -15,9 +15,12 @@ public class Enemy : MonoBehaviour
 
     private Animator anim;
 
+    private EnemyPatrol enemyPatrol;
+
     private void Awake()
     {
         anim = GetComponent <Animator>();
+        enemyPatrol = GetComponentInParent<EnemyPatrol>();
     }
 
     private void Update()
@@ -32,7 +35,10 @@ public class Enemy : MonoBehaviour
                 anim.SetTrigger("attack");
             }
         }
-        
+        if (enemyPatrol != null)
+        {
+            enemyPatrol.enabled = !PlayerInSight();
+        }
     }
 
     private bool PlayerInSight()

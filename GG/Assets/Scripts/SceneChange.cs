@@ -1,22 +1,31 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class SceneChange : MonoBehaviour
 {
-    private string nextScene = "";
-    private bool disableFadeInAnimation = false;
+    public GameObject obj;
+    public int levelToLoad;
+    public bool work = false;
+    private Animator anim;
 
     private void Start()
     {
-        if (disableFadeInAnimation)
-        {
-            Animator animator = gameObject.GetComponent<Animator>();
-            animator.Play("FadeIn", 0, 1);
-        }
+        anim = obj.GetComponent<Animator>();
     }
 
-    void FadeOutFinished()
+    public void OnTriggerEnter(Collider other)
     {
-        SceneManager.LoadScene(nextScene);
+        if (other.tag == "Player")
+        {
+            Debug.Log("ABOBA");
+            work = true;
+            anim.SetTrigger("fade");
+        }
+    }
+     public void OnFadeComplete()
+    {
+        SceneManager.LoadScene(levelToLoad);
     }
 }

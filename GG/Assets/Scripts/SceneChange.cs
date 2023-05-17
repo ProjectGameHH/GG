@@ -7,7 +7,6 @@ public class SceneChange : MonoBehaviour
 {
     public GameObject obj;
     public int levelToLoad;
-    public bool work = false;
     private Animator anim;
 
     private void Start()
@@ -15,12 +14,10 @@ public class SceneChange : MonoBehaviour
         anim = obj.GetComponent<Animator>();
     }
 
-    public void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag == "Player")
         {
-            Debug.Log("ABOBA");
-            work = true;
             anim.SetTrigger("fade");
         }
     }

@@ -10,12 +10,15 @@ public class Enemy : MonoBehaviour
     [SerializeField] private float colliderDistance;
     [SerializeField] private BoxCollider2D boxCollider;
     [SerializeField] private LayerMask playerLayer;
+    [SerializeField] private Transform player;
+    [SerializeField] private float speed;
     private float cooldownTimer = Mathf.Infinity;
     private Health playerHealth;
-
     private Animator anim;
-
     private EnemyPatrol enemyPatrol;
+
+    
+    
 
     private void Awake()
     {
@@ -34,10 +37,61 @@ public class Enemy : MonoBehaviour
                 cooldownTimer = 0;
                 anim.SetTrigger("attack");
             }
+            
         }
-        if (enemyPatrol != null)
+        if (enemyPatrol!= null)
         {
             enemyPatrol.enabled = !PlayerInSight();
+        }
+        if (Vector2.Distance(new Vector2(Mathf.Abs(transform.position.x), Mathf.Abs(transform.position.y)), new Vector2(Mathf.Abs(player.position.x), Mathf.Abs(player.position.y)))< 500f)
+        {
+            if(enemyPatrol!= null)
+            {
+                enemyPatrol.enabled = false;
+               
+                transform.position = Vector3.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
+                if (PlayerInSight())
+                {
+                    anim.SetBool("moving", false);
+                    speed = 0;
+                    if (cooldownTimer >= attackCooldown)
+                    {
+                        cooldownTimer = 0;
+                        anim.SetTrigger("attack");
+                    }
+                }
+                else
+                {
+                    speed = 2;
+                    anim.SetBool("moving", true);
+                    transform.position = Vector3.MoveTowards(transform.position, player.transform.position , speed * Time.deltaTime);
+                }
+            }
+        }
+        else
+        {
+            if (enemyPatrol != null)
+            {
+                
+                enemyPatrol.enabled = false;
+                transform.position = Vector3.MoveTowards(transform.position, player.transform.position*-1, speed * Time.deltaTime);
+                if (PlayerInSight())
+                {
+                    anim.SetBool("moving", false);
+                    speed = 0;
+                    if (cooldownTimer >= attackCooldown)
+                    {
+                        cooldownTimer = 0;
+                        anim.SetTrigger("attack");
+                    }
+                }
+                else
+                {
+                    speed = 2;
+                    anim.SetBool("moving", true);
+                    transform.position = Vector3.MoveTowards(transform.position, player.transform.position * -1, speed * Time.deltaTime);
+                }
+            }
         }
     }
 

@@ -1,13 +1,17 @@
 using UnityEngine;
+using UnityEngine.Assertions.Must;
 
 public class Health : MonoBehaviour
 {
     [SerializeField] private float startingHealth;
     public float currentHealth { get; private set; }
+    private Animator anim;
+    private bool dead = false;
 
     private void Awake()
     {
         currentHealth = startingHealth;
+        anim = GetComponent<Animator>();
     }
 
     public void TakeDamage(float _damage)
@@ -18,9 +22,17 @@ public class Health : MonoBehaviour
         {
             //player hurt
         }
-        else
+        else if (currentHealth <= 0)
         {
-            //player dead
+            if (!dead)
+            {
+                anim.SetTrigger("die");
+                GetComponent<PlayerController>().enabled = false;
+
+                GetComponentInParent<EnemyPatrol>().enabled = false;
+                GetComponent<Enemy>().enabled = false;
+                dead = true;
+            }
         }
     }
 }

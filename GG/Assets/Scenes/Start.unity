@@ -2283,7 +2283,7 @@ SpriteRenderer:
   m_Size: {x: 0.64, y: 1.28}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!95 &910368253
@@ -2326,7 +2326,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -0.02, y: -0.11}
   m_SizeDelta: {x: 1.28, y: 2.56}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &910368255
@@ -5747,6 +5747,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1732788203}
     m_Modifications:
+    - target: {fileID: 8014081336030239492, guid: d135c0834ce7c954c86440b47ecd7dcf, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8014081336030239496, guid: d135c0834ce7c954c86440b47ecd7dcf, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -368029204, guid: d7a365f9f5f361d438c347a078c8cffc, type: 3}
     - target: {fileID: 8014081336030239497, guid: d135c0834ce7c954c86440b47ecd7dcf, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -5765,11 +5773,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8014081336030239497, guid: d135c0834ce7c954c86440b47ecd7dcf, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.032
+      value: -0.415
       objectReference: {fileID: 0}
     - target: {fileID: 8014081336030239497, guid: d135c0834ce7c954c86440b47ecd7dcf, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.018
+      value: -0.049
       objectReference: {fileID: 0}
     - target: {fileID: 8014081336030239497, guid: d135c0834ce7c954c86440b47ecd7dcf, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5805,11 +5813,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8014081336030239498, guid: d135c0834ce7c954c86440b47ecd7dcf, type: 3}
       propertyPath: range
-      value: 1
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8014081336030239498, guid: d135c0834ce7c954c86440b47ecd7dcf, type: 3}
+      propertyPath: speed
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8014081336030239498, guid: d135c0834ce7c954c86440b47ecd7dcf, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 910368254}
+    - target: {fileID: 8014081336030239498, guid: d135c0834ce7c954c86440b47ecd7dcf, type: 3}
+      propertyPath: boxCollider2
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 8014081336030239498, guid: d135c0834ce7c954c86440b47ecd7dcf, type: 3}
       propertyPath: colliderDistance
-      value: 4
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8014081336030239499, guid: d135c0834ce7c954c86440b47ecd7dcf, type: 3}
+      propertyPath: startingHealth
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8014081336030239502, guid: d135c0834ce7c954c86440b47ecd7dcf, type: 3}
       propertyPath: m_Name

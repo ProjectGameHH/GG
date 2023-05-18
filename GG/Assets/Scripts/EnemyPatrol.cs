@@ -19,7 +19,6 @@ public class EnemyPatrol : MonoBehaviour
 
     [Header("Animator")]
     [SerializeField] private Animator anim;
-
     private void Awake()
     {
         initScale = enemy.localScale;

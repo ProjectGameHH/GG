@@ -20,7 +20,7 @@ public class Enemy : MonoBehaviour
     
     
 
-    private void Awake()
+    private void Start()
     {
         anim = GetComponent <Animator>();
         enemyPatrol = GetComponentInParent<EnemyPatrol>();
@@ -43,7 +43,7 @@ public class Enemy : MonoBehaviour
         {
             enemyPatrol.enabled = !PlayerInSight();
         }
-        if (Vector2.Distance(new Vector2(Mathf.Abs(transform.position.x), Mathf.Abs(transform.position.y)), new Vector2(Mathf.Abs(player.position.x), Mathf.Abs(player.position.y)))< 500f)
+        if (Vector2.Distance(new Vector2(transform.position.x, transform.position.y), new Vector2(player.position.x, player.position.y)) < 5)
         {
             if(enemyPatrol!= null)
             {
@@ -68,7 +68,7 @@ public class Enemy : MonoBehaviour
                 }
             }
         }
-        else
+        else if (Vector2.Distance(new Vector2(transform.position.x, transform.position.y), new Vector2(player.position.x, player.position.y)) < 5)
         {
             if (enemyPatrol != null)
             {

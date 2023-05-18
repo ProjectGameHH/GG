@@ -787,7 +787,7 @@ MonoBehaviour:
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.5
   m_Color: {r: 0.40328893, g: 0.36632255, b: 0.5283019, a: 1}
-  m_Intensity: 0.24
+  m_Intensity: 1.65
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
   m_ApplyToSortingLayers: 00000000
@@ -8798,6 +8798,10 @@ PrefabInstance:
       propertyPath: range
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8014081336030239498, guid: d135c0834ce7c954c86440b47ecd7dcf, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1277837244}
     - target: {fileID: 8014081336030239498, guid: d135c0834ce7c954c86440b47ecd7dcf, type: 3}
       propertyPath: colliderDistance
       value: 4
